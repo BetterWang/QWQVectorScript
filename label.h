@@ -6,7 +6,7 @@ char const * fname[] = {
 	"../QVector/HIMinimumBias3/crab_HIMB3_QVector_v1/160411_135103/0000/",		// 1 1-3 GeV/c
 };
 
-char const * txt[] = {
+char const * ftxt[] = {
 	"test/",								// 0
 	"txt/HIMB3_v1/",							// 1
 }
