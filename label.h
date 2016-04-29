@@ -9,11 +9,11 @@ char const * fname[] = {
 char const * ftxt[] = {
 	"test/",								// 0
 	"txt/HIMB3_v1/",							// 1
-}
+};
 
 TChain * chV = new TChain("trV");
 void addchain(int s1)
 {
 	std::cout << fname[s1] << std::endl;
-	chV->Add(Form("%s/*.root/QVector/trV", fname[s1]));
+	chV->Add(Form("%s/qvector_1*.root/QVector/trV", fname[s1]));
 }
