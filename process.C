@@ -10,7 +10,7 @@
 
 typedef std::complex<double> Complex;
 
-void process(int s1 = 0)
+void process(int s1 = 1)
 {
 	cout << " s1 = " << s1 << endl;
 	addchain(s1);
