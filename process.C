@@ -113,7 +113,7 @@ void process(int s1 = 0)
 
 	TH1D *	hQ1c = new TH1D("hQ1c", "", 200, 0, 200);
 	TH1D *	hQ1w = new TH1D("hQ1w", "", 200, 0, 200);
-	TH1D *	hQ22 = new TH1D("hQ22", "", 200, 0, 200);
+	TH1D *	hQ2  = new TH1D("hQ2",  "", 200, 0, 200);
 	TH1D *	hQ2w = new TH1D("hQ2w", "", 200, 0, 200);
 
 	TH1D *	hQ1pp = new TH1D("hQ1pp", "", 200, 0, 200);
@@ -137,6 +137,8 @@ void process(int s1 = 0)
 	TH1D *	hQ3nnw= new TH1D("hQ3nnw", "", 200, 0, 200);
 	TH1D *	hQ3pnw= new TH1D("hQ3pnw", "", 200, 0, 200);
 
+	TH1D *	hQ3Sc = new TH1D("hQ3Sc", "", 200, 0, 200);
+
 	TH1D * hCent = new TH1D("hCent", "Centrality", 200, 0, 200);
 	TH1D * hMult = new TH1D("hMult", "Multiplicity", 5000, 0, 5000);
 	unsigned int ievt = 0;
@@ -145,12 +147,19 @@ void process(int s1 = 0)
 		hCent->Fill(cent);
 		hMult->Fill(mult);
 
+		// Exp(I * phi_i) +
 		Complex	Q1p  ( rQ1p,  iQ1p );
+		// Exp(I * (phi_i - phi_j) ) ++
 		Complex	Q1p2 ( rQ1p2, iQ1p2 );
+		// Exp(I * 2phi_i) +
 		Complex	Q2p1 ( rQ2p1, iQ2p1 );
+		// Exp(I * (2phi_i - 2phi_j)) ++
 		Complex	Q2p2 ( rQ2p2, iQ2p2 );
+		// Exp(I * (phi_i + phi_j)) ++
 		Complex	Q3p2 ( rQ3p2, iQ3p2 );
+		// Exp(I * (phi_i + phi_j - 2 phi_k)) +++
 		Complex	Q3p3 ( rQ3p3, iQ3p3 );
+		// Exp(I * (phi_i + - 2 phi_j)) ++
 		Complex	QMp2 ( rQMp2, iQMp2 );
 
 		Complex	Q1n  ( rQ1n,  iQ1n );
@@ -161,44 +170,101 @@ void process(int s1 = 0)
 		Complex	Q3n3 ( rQ3n3, iQ3n3 );
 		Complex	QMn2 ( rQMn2, iQMn2 );
 
+//		cout << " Q1p  = " << Q1p  << endl;
+//		cout << " Q1p2 = " << Q1p2 << endl;
+//		cout << " Q2p1 = " << Q2p1 << endl;
+//		cout << " Q2p2 = " << Q2p2 << endl;
+//		cout << " Q3p2 = " << Q3p2 << endl;
+//		cout << " Q3p3 = " << Q3p3 << endl;
+//		cout << " QMp2 = " << QMp2 << endl;
+//		cout << " wp1  = " << wp1  << endl;
+//		cout << " wp2  = " << wp2  << endl;
+//		cout << " wp3  = " << wp3  << endl;
+//
+//		cout << " Q1n  = " << Q1n  << endl;
+//		cout << " Q1n2 = " << Q1n2 << endl;
+//		cout << " Q2n1 = " << Q2n1 << endl;
+//		cout << " Q2n2 = " << Q2n2 << endl;
+//		cout << " Q3n2 = " << Q3n2 << endl;
+//		cout << " Q3n3 = " << Q3n3 << endl;
+//		cout << " QMn2 = " << QMn2 << endl;
+//		cout << " wn1  = " << wn1  << endl;
+//		cout << " wn2  = " << wn2  << endl;
+//		cout << " wn3  = " << wn3  << endl;
+
 		// <(Q_1c)^2>
-		hQ1c->Fill( std::norm(Q1p - Q1n) );
-		hQ1w->Fill( wp1 + wn1 );
+		hQ1c->Fill( cent, std::norm(Q1p - Q1n) ); //x
+		hQ1w->Fill( cent, wp1 + wn1 ); //x
 		// <(Q_2)^2>
-		hQ22->Fill( std::norm(Q2p1 + Q2n1 + Q1p*Q1n*2.) );
-		hQ2w->Fill( (wp1 + wn1)*(wp1 + wn1 -1) );
+		hQ2->Fill( cent, std::norm(Q2p1 + Q2n1) ); //x
+		hQ2w->Fill( cent, (wp1 + wn1) ); //x
 
 		// <cos(i-j)> ++
-		hQ1pp->Fill( Q1p2.real() );
-		hQ1ppw->Fill( wp2 );
+		hQ1pp->Fill( cent, Q1p2.real() ); //x
+		hQ1ppw->Fill( cent, wp2 ); //x
 		// <cos(i-j)> --
-		hQ1nn->Fill( Q1n2.real() );
-		hQ1nnw->Fill( wn2 );
+		hQ1nn->Fill( cent, Q1n2.real() ); //x
+		hQ1nnw->Fill( cent, wn2 ); //x
 		// <cos(i-j)> +-
-		hQ1pn->Fill( (Q1p * std::conj(Q1n)).real() );
-		hQ1pnw->Fill( wp1 * wn1 );
+		hQ1pn->Fill( cent, (Q1p * std::conj(Q1n)).real() ); //x
+		hQ1pnw->Fill( cent, wp1 * wn1 ); //x
 
 		// <cos(2i-2j)> ++
-		hQ2pp->Fill( Q2p2.real() );
-		hQ2ppw->Fill( wp2 );
+		hQ2pp->Fill( cent, Q2p2.real() ); // x
+		hQ2ppw->Fill( cent, wp2 ); // x
 		// <cos(2i-2j)> --
-		hQ2nn->Fill( Q2n2.real() );
-		hQ2nnw->Fill( wn2 );
+		hQ2nn->Fill( cent, Q2n2.real() ); // x
+		hQ2nnw->Fill( cent, wn2 ); // x
 		// <cos(2i-2j)> +-
-		hQ2pn->Fill( (Q2p1 * std::conj(Q2n1)).real() );
-		hQ2pnw->Fill( wp1 * wn1 );
+		hQ2pn->Fill( cent, (Q2p1 * std::conj(Q2n1)).real() ); // x
+		hQ2pnw->Fill( cent, wp1 * wn1 ); // x
 
 		// <cos(i+j-2k)> ++a
-		hQ3pp->Fill( (Q3p3 + Q3p2*std::conj(Q2n1)).real() );
-		hQ3ppw->Fill( wp3 + wp2*wn1 );
+		hQ3pp->Fill( cent, (Q3p3 + Q3p2*std::conj(Q2n1)).real() ); // x
+		hQ3ppw->Fill( cent, wp3 + wp2*wn1 ); // x
 		// <cos(i+j-2k)> --a
-		hQ3nn->Fill( (Q3n3 + Q3n2*std::conj(Q2p1)).real() );
-		hQ3nnw->Fill( wn3 + wn2*wp1 );
+		hQ3nn->Fill( cent, (Q3n3 + Q3n2*std::conj(Q2p1)).real() ); // x
+		hQ3nnw->Fill( cent, wn3 + wn2*wp1 ); // x
 		// <cos(i+j-2k)> +-a
-		// -,+,+
+		hQ3pn->Fill( cent, (QMp2 * Q1n + QMn2 * Q1p).real() ); // x
+		hQ3pnw->Fill( cent, wp2 * wn1 + wn2 * wp1); // x
+		// S1c qi*qj*cos(i-j)
+		Complex S1c = - Q1p * std::conj(Q1n) - Q1n * std::conj(Q1p) + Q1p2 + Q1n2; // x
+		// S2 cos(2i-2j)
+		Complex S2 = Q2p2 + Q2n2 + Q2p1*std::conj(Q2n1) + Q2n1*std::conj(Q2p1); // x
+		// S3c qi*qj*cos(i+j-2k)
+		Complex S3c = Q3p3 + Q3p2*std::conj(Q2n1) - 2.*QMp2*Q1n - 2.*QMn2*Q1p + Q3n2*std::conj(Q2p1) + Q3n3; // x
+		// hQ3Sc
+		double Nch = wp1 + wn1;
+		hQ3Sc->Fill( cent, (Nch + 2 * S1c.real() + S2.real() + S3c.real()) / ( (Nch + S1c.real()) * sqrt(Nch + S2.real()) ) );
 	}
 
 	TFile * fwrite = new TFile(Form("%s/output.root", ftxt[s1]), "recreate");
+
+	hQ1c  ->Write();
+	hQ1w  ->Write();
+	hQ2   ->Write();
+	hQ2w  ->Write();
+	hQ1pp ->Write();
+	hQ1nn ->Write();
+	hQ1pn ->Write();
+	hQ1ppw->Write();
+	hQ1nnw->Write();
+	hQ1pnw->Write();
+	hQ2pp ->Write();
+	hQ2nn ->Write();
+	hQ2pn ->Write();
+	hQ2nnw->Write();
+	hQ2ppw->Write();
+	hQ2pnw->Write();
+	hQ3pp ->Write();
+	hQ3nn ->Write();
+	hQ3pn ->Write();
+	hQ3ppw->Write();
+	hQ3nnw->Write();
+	hQ3pnw->Write();
+	hQ3Sc->Write();
+
 	hCent->Write();
 	hMult->Write();
 	fwrite->Close();

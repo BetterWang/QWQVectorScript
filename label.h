@@ -15,5 +15,5 @@ TChain * chV = new TChain("trV");
 void addchain(int s1)
 {
 	std::cout << fname[s1] << std::endl;
-	chV->Add(Form("%s/qvector_1*.root/QVector/trV", fname[s1]));
+	chV->Add(Form("%s/qvector*.root/QVector/trV", fname[s1]));
 }
