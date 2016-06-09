@@ -228,6 +228,19 @@ print "S3c = ", s
 print "W3c = ", w
 
 
+s = 0
+w = 0
+for idx1, part1 in enumerate(part_all):
+    for idx2, part2 in enumerate(part_all):
+        if idx1 == idx2:
+            continue
+        s += math.cos(2*part1[1] + 2*part2[1])
+        w += 1
+
+print "hQ2aa = ", s
+print "hQ2aaw = ", w
+
+
 '''
 Complex Q1p  = Complex(0.995869,0.141414)
 Complex Q1p2 = Complex(-1.98825,0)

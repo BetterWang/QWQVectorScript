@@ -10,7 +10,7 @@
 
 typedef std::complex<double> Complex;
 
-void process(int s1 = 1)
+void process(int s1 = 0)
 {
 	cout << " s1 = " << s1 << endl;
 	addchain(s1);
@@ -126,9 +126,11 @@ void process(int s1 = 1)
 	TH1D *	hQ2pp = new TH1D("hQ2pp", "", 200, 0, 200);
 	TH1D *	hQ2nn = new TH1D("hQ2nn", "", 200, 0, 200);
 	TH1D *	hQ2pn = new TH1D("hQ2pn", "", 200, 0, 200);
+	TH1D *	hQ2aa = new TH1D("hQ2aa", "", 200, 0, 200);
 	TH1D *	hQ2nnw= new TH1D("hQ2nnw", "", 200, 0, 200);
 	TH1D *	hQ2ppw= new TH1D("hQ2ppw", "", 200, 0, 200);
 	TH1D *	hQ2pnw= new TH1D("hQ2pnw", "", 200, 0, 200);
+	TH1D *	hQ2aaw= new TH1D("hQ2aaw", "", 200, 0, 200);
 
 	TH1D *	hQ3pp = new TH1D("hQ3pp", "", 200, 0, 200);
 	TH1D *	hQ3nn = new TH1D("hQ3nn", "", 200, 0, 200);
@@ -218,6 +220,9 @@ void process(int s1 = 1)
 		// <cos(2i-2j)> +-
 		hQ2pn->Fill( cent, (Q2p1 * std::conj(Q2n1)).real() ); // x
 		hQ2pnw->Fill( cent, wp1 * wn1 ); // x
+		// <cos(2i-2j)> aa
+		hQ2aa->Fill( cent, (Q2p1 * std::conj(Q2n1) + Q2n1*std::conj(Q2p1) + Q2p2 + Q2n2).real() ); // x
+		hQ2aaw->Fill( cent, 2*wp1*wn1 + wp2 + wn2 ); // x
 
 		// <cos(i+j-2k)> ++a
 		hQ3pp->Fill( cent, (Q3p3 + Q3p2*std::conj(Q2n1)).real() ); // x
@@ -254,9 +259,11 @@ void process(int s1 = 1)
 	hQ2pp ->Write();
 	hQ2nn ->Write();
 	hQ2pn ->Write();
+	hQ2aa ->Write();
 	hQ2nnw->Write();
 	hQ2ppw->Write();
 	hQ2pnw->Write();
+	hQ2aaw->Write();
 	hQ3pp ->Write();
 	hQ3nn ->Write();
 	hQ3pn ->Write();
