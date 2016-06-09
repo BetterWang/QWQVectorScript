@@ -143,13 +143,19 @@ void process(int s1 = 0)
 
 	TH1D *	hQ3Sc = new TH1D("hQ3Sc", "", 200, 0, 200);
 
+
 	TH1D * hCent = new TH1D("hCent", "Centrality", 200, 0, 200);
 	TH1D * hMult = new TH1D("hMult", "Multiplicity", 5000, 0, 5000);
+
+	TH1D *	hMultp = new TH1D("hMultp", "", 200, 0, 200);
+	TH1D *	hMultn = new TH1D("hMultp", "", 200, 0, 200);
 	unsigned int ievt = 0;
 	while (chV->GetEntry(ievt++)) {
 		if ( not (ievt%100000) ) cout << "!!! ievt = " << ievt << endl;
 		hCent->Fill(cent);
 		hMult->Fill(mult);
+		hMultp->Fill(cent, wp1);
+		hMultn->Fill(cent, wn1);
 
 		// Exp(I * phi_i) +
 		Complex	Q1p  ( rQ1p,  iQ1p );
@@ -282,5 +288,7 @@ void process(int s1 = 0)
 
 	hCent->Write();
 	hMult->Write();
+	hMultp->Write();
+	hMultn->Write();
 	fwrite->Close();
 }
