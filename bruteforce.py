@@ -240,6 +240,21 @@ for idx1, part1 in enumerate(part_all):
 print "hQ2aa = ", s
 print "hQ2aaw = ", w
 
+s = 0
+w = 0
+for idx1, part1 in enumerate(part_all):
+    for idx2, part2 in enumerate(part_all):
+        if part1[0]!=part2[0] or idx1 == idx2:
+            continue
+        for idx3, part3 in enumerate(part_all):
+            if idx3 == idx1 or idx3 == idx2:
+                continue
+            s += math.cos(part1[1] + part2[1] - 2*part3[1])
+            w += 1
+
+print "ss = ", s
+print "ssw = ", w
+
 
 '''
 Complex Q1p  = Complex(0.995869,0.141414)

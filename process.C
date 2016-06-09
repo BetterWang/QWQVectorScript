@@ -134,9 +134,11 @@ void process(int s1 = 0)
 
 	TH1D *	hQ3pp = new TH1D("hQ3pp", "", 200, 0, 200);
 	TH1D *	hQ3nn = new TH1D("hQ3nn", "", 200, 0, 200);
+	TH1D *	hQ3ss = new TH1D("hQ3ss", "", 200, 0, 200);
 	TH1D *	hQ3pn = new TH1D("hQ3pn", "", 200, 0, 200);
 	TH1D *	hQ3ppw= new TH1D("hQ3ppw", "", 200, 0, 200);
 	TH1D *	hQ3nnw= new TH1D("hQ3nnw", "", 200, 0, 200);
+	TH1D *	hQ3ssw= new TH1D("hQ3ssw", "", 200, 0, 200);
 	TH1D *	hQ3pnw= new TH1D("hQ3pnw", "", 200, 0, 200);
 
 	TH1D *	hQ3Sc = new TH1D("hQ3Sc", "", 200, 0, 200);
@@ -230,6 +232,12 @@ void process(int s1 = 0)
 		// <cos(i+j-2k)> --a
 		hQ3nn->Fill( cent, (Q3n3 + Q3n2*std::conj(Q2p1)).real() ); // x
 		hQ3nnw->Fill( cent, wn3 + wn2*wp1 ); // x
+		// <cos(i+j-2k)> ++a/--a
+		hQ3ss->Fill( cent, (Q3p3 + Q3p2*std::conj(Q2n1) + Q3n3 + Q3n2*std::conj(Q2p1)).real() ); //
+		hQ3ssw->Fill( cent, wp3 + wp2*wn1 + wn3 + wn2*wp1 ); //
+		cout << Q3p3 + Q3p2*std::conj(Q2n1) + Q3n3 + Q3n2*std::conj(Q2p1) << endl;
+		cout << wp3 + wp2*wn1 + wn3 + wn2*wp1 << endl;
+
 		// <cos(i+j-2k)> +-a
 		hQ3pn->Fill( cent, (QMp2 * Q1n + QMn2 * Q1p).real() ); // x
 		hQ3pnw->Fill( cent, wp2 * wn1 + wn2 * wp1); // x
@@ -266,9 +274,11 @@ void process(int s1 = 0)
 	hQ2aaw->Write();
 	hQ3pp ->Write();
 	hQ3nn ->Write();
+	hQ3ss ->Write();
 	hQ3pn ->Write();
 	hQ3ppw->Write();
 	hQ3nnw->Write();
+	hQ3ssw->Write();
 	hQ3pnw->Write();
 	hQ3Sc->Write();
 
