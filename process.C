@@ -235,8 +235,6 @@ void process(int s1 = 0)
 		// <cos(i+j-2k)> ++a/--a
 		hQ3ss->Fill( cent, (Q3p3 + Q3p2*std::conj(Q2n1) + Q3n3 + Q3n2*std::conj(Q2p1)).real() ); //
 		hQ3ssw->Fill( cent, wp3 + wp2*wn1 + wn3 + wn2*wp1 ); //
-		cout << Q3p3 + Q3p2*std::conj(Q2n1) + Q3n3 + Q3n2*std::conj(Q2p1) << endl;
-		cout << wp3 + wp2*wn1 + wn3 + wn2*wp1 << endl;
 
 		// <cos(i+j-2k)> +-a
 		hQ3pn->Fill( cent, (QMp2 * Q1n + QMn2 * Q1p).real() ); // x
