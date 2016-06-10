@@ -5,12 +5,14 @@ char const * fname[] = {
 	"test/",									// 0
 	"../QVector/HIMinimumBias3/crab_HIMB3_QVector_v5/160501_180514/0000/",		// 1 1-3 GeV/c
 	"../QVector/HIMinimumBias3/crab_HIMB3_QVector_randq_v1/160608_174408/0000/",	// 2 randq 1-3 GeV/c
+	"../QVector/HIMinimumBias3/crab_HIMB3_QVector_randq_v2/160609_180344/0000/",	// 3 randq 1-3 GeV/c 0.505 pos
 };
 
 char const * ftxt[] = {
 	"test/",								// 0
 	"txt/HIMB3_v1/",							// 1
 	"txt/HIMB3_randq_v1/",							// 2
+	"txt/HIMB3_randq_v2/",							// 3
 };
 
 TChain * chV = new TChain("trV");
