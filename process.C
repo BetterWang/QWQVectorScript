@@ -143,6 +143,7 @@ void process(int s1 = 0)
 
 	TH1D *	hQ3Sc = new TH1D("hQ3Sc", "", 200, 0, 200);
 
+	TH1D * hDPhi = new TH2D("hDPhi", "", 200, 0, 200, 18, 0, TMath::Pi()/2);
 
 	TH1D * hCent = new TH1D("hCent", "Centrality", 200, 0, 200);
 	TH1D * hMult = new TH1D("hMult", "Multiplicity", 5000, 0, 5000);
@@ -254,6 +255,11 @@ void process(int s1 = 0)
 		// hQ3Sc
 		double Nch = wp1 + wn1;
 		hQ3Sc->Fill( cent, (Nch + 2 * S1c.real() + S2.real() + S3c.real()) / ( (Nch + S1c.real()) * sqrt(Nch + S2.real()) ) );
+
+		// DeltaPhi
+		double Dphi = fabs(std::arg( (Q1p - Q1n) * std::conj(Q2p1 + Q2n1) ));
+		if ( Dphi > TMath::Pi()/2 ) Dphi = TMath::Pi() - Dphi;
+		hDPhi->Fill(cent, Dphi);
 	}
 
 	TFile * fwrite = new TFile(Form("%s/output.root", ftxt[s1]), "recreate");
@@ -290,5 +296,6 @@ void process(int s1 = 0)
 	hMult->Write();
 	hMultp->Write();
 	hMultn->Write();
+	hDPhi->Write();
 	fwrite->Close();
 }
