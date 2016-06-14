@@ -143,7 +143,7 @@ void process(int s1 = 0)
 
 	TH1D *	hQ3Sc = new TH1D("hQ3Sc", "", 200, 0, 200);
 
-	TH1D * hDPhi = new TH2D("hDPhi", "", 200, 0, 200, 18, 0, TMath::Pi()/2);
+	TH2D * hDPhi = new TH2D("hDPhi", "", 200, 0, 200, 18, 0, TMath::Pi()/2);
 
 	TH1D * hCent = new TH1D("hCent", "Centrality", 200, 0, 200);
 	TH1D * hMult = new TH1D("hMult", "Multiplicity", 5000, 0, 5000);
