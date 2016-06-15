@@ -115,6 +115,7 @@ void process(int s1 = 0)
 	TH1D *	hQ1w = new TH1D("hQ1w", "", 200, 0, 200);
 	TH1D *	hQ2  = new TH1D("hQ2",  "", 200, 0, 200);
 	TH1D *	hQ2w = new TH1D("hQ2w", "", 200, 0, 200);
+	TH2D *	h2Q2 = new TH1D("h2Q2", "", 200, 0, 200, 500, 0, 0.5);
 
 	TH1D *	hQ1pp = new TH1D("hQ1pp", "", 200, 0, 200);
 	TH1D *	hQ1nn = new TH1D("hQ1nn", "", 200, 0, 200);
@@ -209,6 +210,8 @@ void process(int s1 = 0)
 		// <(Q_2)^2>
 		hQ2->Fill( cent, std::norm(Q2p1 + Q2n1) ); //x
 		hQ2w->Fill( cent, (wp1 + wn1) ); //x
+		h2Q2->Fill( cent, std::abs( (Q2p1 + Q2n1)/(wp1+wn1) ) );
+
 
 		// <cos(i-j)> ++
 		hQ1pp->Fill( cent, Q1p2.real() ); //x
@@ -267,6 +270,7 @@ void process(int s1 = 0)
 	hQ1c  ->Write();
 	hQ1w  ->Write();
 	hQ2   ->Write();
+	h2Q2  ->Write();
 	hQ2w  ->Write();
 	hQ1pp ->Write();
 	hQ1nn ->Write();

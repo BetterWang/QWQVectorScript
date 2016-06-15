@@ -41,10 +41,13 @@ void ana(int s1 = 1)
 	TH1D * hMultp  = (TH1D*) f->Get("hMultp");
 	TH1D * hMultn  = (TH1D*) f->Get("hMultn");
 
+	TH2D * hDPhi = (TH2D*) f->Get("hDPhi");
+
 	TH1D * hv2aa = (TH1D*) hQ2aa->Clone("hv2aa");
 	TH1D * hv2pp = (TH1D*) hQ2pp->Clone("hv2pp");
 	TH1D * hv2nn = (TH1D*) hQ2nn->Clone("hv2nn");
 	TH1D * hv2pn = (TH1D*) hQ2pn->Clone("hv2pn");
+
 
 	hv2aa->Divide(hQ2aaw);
 	hv2pp->Divide(hQ2ppw);
