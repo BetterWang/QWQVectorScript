@@ -15,6 +15,7 @@ char const * fname[] = {
 	"../QVector/HIMinimumBias1/crab_HIMB1_QVector_randq_v1/160617_090018/0000/",	// 10 HIMB1 randq 1-3 GeV/c
 	"../QVector/HIMinimumBias2/crab_HIMB2_QVector_randq_v1/160617_090032/0000/",	// 11 HIMB2 randq 1-3 GeV/c
 	"../QVector/HIMinimumBias4/crab_HIMB4_QVector_randq_v1/160617_090047/0000/",	// 12 HIMB4 randq 1-3 GeV/c
+	"NA",										// 13 merged randq 2,10,11,12 HIMB[1,2,3,4] 1-3 GeV/c
 };
 
 char const * ftxt[] = {
@@ -31,6 +32,7 @@ char const * ftxt[] = {
 	"txt/HIMB1_randq_v1/",							// 10
 	"txt/HIMB2_randq_v1/",							// 11
 	"txt/HIMB4_randq_v1/",							// 12
+	"txt/HIMB_1234_randq_v1/",						// 13
 };
 
 TChain * chV = new TChain("trV");
