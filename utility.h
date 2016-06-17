@@ -74,3 +74,6 @@ void splitCanv3(TCanvas * c)
 
 	c->cd(1);
 }
+
+
+

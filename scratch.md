@@ -4,3 +4,4 @@
 
 ### ToDo
 1. Add Q2 dependent
+2. cos(2a + 2b - 4 c)

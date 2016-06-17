@@ -53,6 +53,7 @@ void ana(int s1 = 1)
 	hv2pp->Divide(hQ2ppw);
 	hv2nn->Divide(hQ2nnw);
 	hv2pn->Divide(hQ2pnw);
+
 	hv2pp->SetLineColor(kRed);
 	hv2nn->SetLineColor(kBlue);
 	hv2pn->SetLineColor(kGreen);
