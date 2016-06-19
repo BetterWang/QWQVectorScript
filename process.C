@@ -13,6 +13,7 @@ typedef std::complex<double> Complex;
 void process(int s1 = 0)
 {
 	cout << " s1 = " << s1 << endl;
+	TH1D::SetDefaultSumw2();
 	addchain(s1);
 
 	// Declaration of leaf types
