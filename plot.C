@@ -3,7 +3,7 @@
 #include "../../style.h"
 
 
-void plot(int s1 = 1)
+void plot(int s1 = 7)
 {
 	TFile * f = new TFile(Form("%s/out_rebin.root", ftxt[s1]));
 	SetStyle();
@@ -99,8 +99,12 @@ void plot(int s1 = 1)
 	TCanvas * c4 = MakeCanvas("c4", "c4", 500, 400);
 	TH2D * hframe_Q1c = new TH2D("hframe_Q1c", "hframe_Q1c", 1, 0, 200, 1, 0.00, 2.);
 
-	hQ1c_Cent->Divide(hCent_Cent);
+	hQ1c_Cent->Divide(hQ1w_Cent);
 	hQ1c_Cent->Draw();
 
+	c1->SaveAs(Form("%s/v22.pdf", ftxt[s1]));
+	c2->SaveAs(Form("%s/3part.pdf", ftxt[s1]));
+	c3->SaveAs(Form("%s/hQ3Sc.pdf", ftxt[s1]));
+	c4->SaveAs(Form("%s/hQ1c.pdf", ftxt[s1]));
 
 }

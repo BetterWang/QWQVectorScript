@@ -16,6 +16,8 @@ void sqrthist(TH1D* h)
 	}
 }
 
+
+
 void rebin(int s1 = 7)
 {
 	TFile * f = new TFile(Form("%s/output.root", ftxt[s1]));
@@ -51,6 +53,8 @@ void rebin(int s1 = 7)
 	TH1D *	hQ3pnw = (TH1D*) f->Get("hQ3pnw");
 
 	TH1D *	hQ3Sc  = (TH1D*) f->Get("hQ3Sc");
+
+	TH2D *	hDPhi  = (TH2D*) f->Get("hDPhi");
 
 	TH1D *	hCent  = (TH1D*) f->Get("hCent");
 	TH1D *	hMult  = (TH1D*) f->Get("hMult");
@@ -126,6 +130,15 @@ void rebin(int s1 = 7)
 	// Q3Sc
 	hQ3Sc_Cent->Divide(hCent_Cent);
 
+	// Th2D
+	TH1D * h2Q2_Cent[NCent];
+	TH1D * hDPhi_Cent[NCent];
+	for ( int c = 0; c < NCent; c++ ) {
+		h2Q2_Cent[c]  = h2Q2->ProjectionY(Form("h2Q2_Cent_%i", c), Cent[c]+1, Cent[c+1], "e");
+		hDPhi_Cent[c] = hDPhi->ProjectionY(Form("hDPhi_Cent_%i", c), Cent[c]+1, Cent[c+1], "e");
+	}
+
+	// 
 	// saving
 	TFile * fsave = new TFile(Form("%s/out_rebin.root", ftxt[s1]), "recreate");
 	hQ1c_Cent  ->Write();
@@ -173,4 +186,8 @@ void rebin(int s1 = 7)
 	h3PartSS   ->Write();
 	h3PartOS   ->Write();
 
+	for ( int c = 0; c < NCent; c++ ) {
+		h2Q2_Cent[c]->Write();
+		hDPhi_Cent[c]->Write();
+	}
 }

@@ -19,6 +19,15 @@
 
 void splitCanv3(TCanvas * c);
 void compare2(TCanvas * c);
+void sqrthist(TH1D* h);
+
+//TH2D * rebin2DX(TH2D* h, char * name, int N, const double *xbin)
+//{
+//	double val = 0;
+//	double err = 0;
+//
+//}
+
 
 void compare2(TCanvas * c, TH1D* h1, TH1D* h2, string xtitle, string ytitle)
 {
