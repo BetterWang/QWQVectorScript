@@ -22,6 +22,7 @@ char const * fname[] = {
 	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_randq_v1/160621_102457/0000/",	// 17 HIMB5 pp rereco 30-100% randq ALICE 0.3 < pT < 3.0 |eta|<0.8
 	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_eff_ALICE_v5/160622_151042/0000/",	// 18 HIMB5 pp rereco 30-100% eff ALICE 0.3 < pT < 3.0 |eta|<0.8
 	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_eff_ALICE_randq_v1/160622_151052/0000/",	// 19 HIMB5 pp rereco 30-100% eff randq ALICE 0.3 < pT < 3.0 |eta|<0.8
+	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_forward_v1/160624_114653/0000/",	// 20 HIMB5 pp rereco 30-100% ALICE 0.3 < pT < 3.0 -2.4 <eta<-0.8
 };
 
 char const * ftxt[] = {
@@ -45,6 +46,7 @@ char const * ftxt[] = {
 	"txt/HIMB5_pp_ALICE_randq_v1",						// 17
 	"txt/HIMB5_pp_eff_ALICE_v1",						// 18
 	"txt/HIMB5_pp_eff_ALICE_randq_v1",					// 19
+	"txt/HIMB5_pp_ALICE_forward_v1",					// 20
 };
 
 TChain * chV = new TChain("trV");
