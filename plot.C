@@ -1,12 +1,17 @@
 #include "label.h"
 #include "noff.h"
 #include "../../style.h"
+#include "ALICE.h"
 
 
 void plot(int s1 = 7)
 {
+	bool bAlice = true;
+
 	TFile * f = new TFile(Form("%s/out_rebin.root", ftxt[s1]));
 	SetStyle();
+
+	if ( bAlice ) ALICE();
 
 	TH1D * hQ1c_Cent  = (TH1D*) f->Get("hQ1c_Cent");
 	TH1D * hQ1w_Cent  = (TH1D*) f->Get("hQ1w_Cent");
@@ -74,7 +79,7 @@ void plot(int s1 = 7)
 
 
 	TCanvas * c2 = MakeCanvas("c2", "c2", 500, 400);
-	TH2D * hframe_3part = new TH2D("hframe_3part", "hframe_3part", 1, 0, 200, 1, -0.012, 0.008);
+	TH2D * hframe_3part = new TH2D("hframe_3part", "hframe_3part", 1, 0, 200, 1, -0.002, 0.002);
 	InitHist(hframe_3part, "Centrality Bin", "cos(#phi_{i}+#phi_{j}-2#Psi_{2})");
 	hframe_3part->Draw();
 
@@ -88,9 +93,11 @@ void plot(int s1 = 7)
 
 	h3PartSS_Cent->Draw("same");
 	h3PartOS_Cent->Draw("same");
+	if ( bAlice ) gr_ALICE_3part_tpccumu_os->Draw("psame");
+	if ( bAlice ) gr_ALICE_3part_tpccumu_ss->Draw("psame");
 
 	TCanvas * c3 = MakeCanvas("c3", "c3", 500, 400);
-	TH2D * hframe_Q3Sc = new TH2D("hframe_Q3Sc", "hframe_Q3Sc", 1, 0, 200, 1, -0.01, 0.7);
+	TH2D * hframe_Q3Sc = new TH2D("hframe_Q3Sc", "hframe_Q3Sc", 1, 0, 200, 1, .0, 1.0);
 	InitHist(hframe_Q3Sc, "Centrality Bin", "#LTcos(2#Delta#Psi)#GT");
 	hframe_Q3Sc->Draw();
 
@@ -98,13 +105,40 @@ void plot(int s1 = 7)
 
 	TCanvas * c4 = MakeCanvas("c4", "c4", 500, 400);
 	TH2D * hframe_Q1c = new TH2D("hframe_Q1c", "hframe_Q1c", 1, 0, 200, 1, 0.00, 2.);
+	InitHist(hframe_Q1c, "Centrality Bin", "Q_{1}^{c}");
 
+	hframe_Q1c->Draw();
 	hQ1c_Cent->Divide(hQ1w_Cent);
-	hQ1c_Cent->Draw();
+	hQ1c_Cent->Draw("same");
+
+	TCanvas * c5 = MakeCanvas("c5", "c5", 500, 400);
+	TH2D * hframe_2part = new TH2D("hframe_2part", "hframe_2part", 1, 0, 200, 1, -0.09, 0.04);
+	InitHist(hframe_2part, "Centrality Bin", "#LTcos(#phi_{i}-#phi_{j})#GT");
+
+	hframe_2part->Draw();
+	zero->Draw();
+	hQ1pp_Cent->Divide(hQ1ppw_Cent);
+	hQ1nn_Cent->Divide(hQ1nnw_Cent);
+	hQ1pn_Cent->Divide(hQ1pnw_Cent);
+
+	hQ1pp_Cent->SetMarkerColor(kRed);
+	hQ1pp_Cent->SetLineColor(kRed);
+	hQ1nn_Cent->SetMarkerColor(kBlue);
+	hQ1nn_Cent->SetLineColor(kBlue);
+	hQ1pn_Cent->SetMarkerColor(kBlack);
+	hQ1pn_Cent->SetLineColor(kBlack);
+
+	hQ1pp_Cent->Draw("same");
+	hQ1nn_Cent->Draw("same");
+	hQ1pn_Cent->Draw("same");
+
+	if ( bAlice ) gr_ALICE_2part_tpccumu_os->Draw("psame");
+	if ( bAlice ) gr_ALICE_2part_tpccumu_ss->Draw("psame");
 
 	c1->SaveAs(Form("%s/v22.pdf", ftxt[s1]));
 	c2->SaveAs(Form("%s/3part.pdf", ftxt[s1]));
 	c3->SaveAs(Form("%s/hQ3Sc.pdf", ftxt[s1]));
 	c4->SaveAs(Form("%s/hQ1c.pdf", ftxt[s1]));
+	c5->SaveAs(Form("%s/2part.pdf", ftxt[s1]));
 
 }
