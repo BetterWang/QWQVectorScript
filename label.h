@@ -18,11 +18,13 @@ char const * fname[] = {
 	"NA",										// 13 merged randq 2,10,11,12 HIMB[1,2,3,4] 1-3 GeV/c
 	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_v5/160620_181533/0000/",		// 14 HIMB5 pp rereco 30-100%
 	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_randq_v1/160621_094008/0000/",	// 15 HIMB5 pp rereco 30-100% randq
-	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_v5/160621_102445/0000/",		// 16 HIMB5 pp rereco 30-100% ALICE 0.3 < pT < 3.0 |eta|<0.8
-	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_randq_v1/160621_102457/0000/",	// 17 HIMB5 pp rereco 30-100% randq ALICE 0.3 < pT < 3.0 |eta|<0.8
-	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_eff_ALICE_v5/160622_151042/0000/",	// 18 HIMB5 pp rereco 30-100% eff ALICE 0.3 < pT < 3.0 |eta|<0.8
-	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_eff_ALICE_randq_v1/160622_151052/0000/",	// 19 HIMB5 pp rereco 30-100% eff randq ALICE 0.3 < pT < 3.0 |eta|<0.8
-	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_forward_v1/160624_114653/0000/",	// 20 HIMB5 pp rereco 30-100% ALICE 0.3 < pT < 3.0 -2.4 <eta<-0.8
+	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_v5/160621_102445/0000/",		// 16 HIMB5 pp rereco 30-100% ALICE 0.3 < pT < 5.0 |eta|<0.8
+	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_randq_v1/160621_102457/0000/",	// 17 HIMB5 pp rereco 30-100% randq ALICE 0.3 < pT < 5.0 |eta|<0.8
+	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_eff_ALICE_v5/160622_151042/0000/",	// 18 HIMB5 pp rereco 30-100% eff ALICE 0.3 < pT < 5.0 |eta|<0.8
+	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_eff_ALICE_randq_v1/160622_151052/0000/",	// 19 HIMB5 pp rereco 30-100% eff randq ALICE 0.3 < pT < 5.0 |eta|<0.8
+	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_forward_v1/160624_114653/0000/",	// 20 HIMB5 pp rereco 30-100% ALICE 0.3 < pT < 5.0 -2.4 <eta<-0.8
+	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_forward_randq_v1/160627_141827/0000/",	// 21 HIMB5 pp rereco 30-100% randq ALICE 0.3 < pT < 5.0 -2.4 <eta<-0.8
+	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_v6/160628_102151/0000/",			// 22 HIMB5 pp rereco 30-100% ALICE 0.3 < pT < 5.0, |eta|<0.8, pixelLayer > 0
 };
 
 char const * ftxt[] = {
@@ -47,6 +49,8 @@ char const * ftxt[] = {
 	"txt/HIMB5_pp_eff_ALICE_v1",						// 18
 	"txt/HIMB5_pp_eff_ALICE_randq_v1",					// 19
 	"txt/HIMB5_pp_ALICE_forward_v1",					// 20
+	"txt/HIMB5_pp_ALICE_forward_randq_v1",					// 21
+	"txt/HIMB5_pp_ALICE_v6",						// 22
 };
 
 TChain * chV = new TChain("trV");
