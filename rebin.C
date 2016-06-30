@@ -124,6 +124,10 @@ void rebin(int s1 = 7)
 	TH1D * h3PartOS = (TH1D*) hQ3pn_Cent->Clone("h3PartOS_Cent");
 	h3PartSS->Divide(hQ3ssw_Cent);
 	h3PartOS->Divide(hQ3pnw_Cent);
+
+	TH1D * h3PartSS_raw = (TH1D*) h3PartSS->Clone("h3PartSS_raw");
+	TH1D * h3PartOS_raw = (TH1D*) h3PartOS->Clone("h3PartOS_raw");
+
 	h3PartSS->Divide(hv2aa);
 	h3PartOS->Divide(hv2aa);
 
@@ -183,6 +187,8 @@ void rebin(int s1 = 7)
 	hv2nn      ->Write();
 	hv2pn      ->Write();
 
+	h3PartSS_raw->Write();
+	h3PartOS_raw->Write();
 	h3PartSS   ->Write();
 	h3PartOS   ->Write();
 
