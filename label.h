@@ -26,6 +26,7 @@ char const * fname[] = {
 	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_forward_randq_v1/160627_141827/0000/",	// 21 HIMB5 pp rereco 30-100% randq ALICE 0.3 < pT < 5.0 -2.4 <eta<-0.8
 	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_v6/160628_102151/0000/",			// 22 HIMB5 pp rereco 30-100% ALICE 0.3 < pT < 5.0, |eta|<0.8, pixelLayer > 0
 	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_v7/160630_094402/0000/",			// 23 HIMB5 pp rereco 30-100% ALICE 0.3 < pT < 5.0, |eta|<0.8, pixelLayer > 0 more update on tracking
+	"../QVector/PAHighPt/crab_pPbHM_QVector_v3/160702_092114/0000/",				// 24 pPb HM ALICE
 };
 
 char const * ftxt[] = {
@@ -53,6 +54,7 @@ char const * ftxt[] = {
 	"txt/HIMB5_pp_ALICE_forward_randq_v1",					// 21
 	"txt/HIMB5_pp_ALICE_v6",						// 22
 	"txt/HIMB5_pp_ALICE_v7",						// 23
+	"txt/PA_HM_ALICE",							// 24
 };
 
 TChain * chV = new TChain("trV");
@@ -60,4 +62,9 @@ void addchain(int s1)
 {
 	std::cout << fname[s1] << std::endl;
 	chV->Add(Form("%s/qvector*.root/QVector/trV", fname[s1]));
+	chV->Add(Form("%s/qvector*.root/QVector100/trV", fname[s1]));
+	chV->Add(Form("%s/qvector*.root/QVector130/trV", fname[s1]));
+	chV->Add(Form("%s/qvector*.root/QVector160/trV", fname[s1]));
+	chV->Add(Form("%s/qvector*.root/QVector190/trV", fname[s1]));
+	chV->Add(Form("%s/qvector*.root/QVector220/trV", fname[s1]));
 }
