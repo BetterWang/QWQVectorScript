@@ -134,6 +134,9 @@ void process(int s1 = 0)
 	TH1D *	hQ2pnw= new TH1D("hQ2pnw", "", 200, 0, 200);
 	TH1D *	hQ2aaw= new TH1D("hQ2aaw", "", 200, 0, 200);
 
+	TH1D *	hQpHF2 = new TH1D("hQ2pp", "", 200, 0, 200);
+	TH1D *	hQnHF2 = new TH1D("hQ2pp", "", 200, 0, 200);
+
 	TH1D *	hQ3pp = new TH1D("hQ3pp", "", 200, 0, 200);
 	TH1D *	hQ3nn = new TH1D("hQ3nn", "", 200, 0, 200);
 	TH1D *	hQ3ss = new TH1D("hQ3ss", "", 200, 0, 200);
@@ -142,6 +145,24 @@ void process(int s1 = 0)
 	TH1D *	hQ3nnw= new TH1D("hQ3nnw", "", 200, 0, 200);
 	TH1D *	hQ3ssw= new TH1D("hQ3ssw", "", 200, 0, 200);
 	TH1D *	hQ3pnw= new TH1D("hQ3pnw", "", 200, 0, 200);
+
+	TH1D *	hQ3pHFpp = new TH1D("hQ3pHFpp", "", 200, 0, 200);
+	TH1D *	hQ3pHFnn = new TH1D("hQ3pHFnn", "", 200, 0, 200);
+	TH1D *	hQ3pHFss = new TH1D("hQ3pHFss", "", 200, 0, 200);
+	TH1D *	hQ3pHFpn = new TH1D("hQ3pHFpn", "", 200, 0, 200);
+	TH1D *	hQ3pHFppw= new TH1D("hQ3pHFppw", "", 200, 0, 200);
+	TH1D *	hQ3pHFnnw= new TH1D("hQ3pHFnnw", "", 200, 0, 200);
+	TH1D *	hQ3pHFssw= new TH1D("hQ3pHFssw", "", 200, 0, 200);
+	TH1D *	hQ3pHFpnw= new TH1D("hQ3pHFpnw", "", 200, 0, 200);
+
+	TH1D *	hQ3nHFpp = new TH1D("hQ3nHFpp", "", 200, 0, 200);
+	TH1D *	hQ3nHFnn = new TH1D("hQ3nHFnn", "", 200, 0, 200);
+	TH1D *	hQ3nHFss = new TH1D("hQ3nHFss", "", 200, 0, 200);
+	TH1D *	hQ3nHFpn = new TH1D("hQ3nHFpn", "", 200, 0, 200);
+	TH1D *	hQ3nHFppw= new TH1D("hQ3nHFppw", "", 200, 0, 200);
+	TH1D *	hQ3nHFnnw= new TH1D("hQ3nHFnnw", "", 200, 0, 200);
+	TH1D *	hQ3nHFssw= new TH1D("hQ3nHFssw", "", 200, 0, 200);
+	TH1D *	hQ3nHFpnw= new TH1D("hQ3nHFpnw", "", 200, 0, 200);
 
 	TH1D *	hQ3Sc = new TH1D("hQ3Sc", "", 200, 0, 200);
 
@@ -182,6 +203,11 @@ void process(int s1 = 0)
 		Complex	Q3n2 ( rQ3n2, iQ3n2 );
 		Complex	Q3n3 ( rQ3n3, iQ3n3 );
 		Complex	QMn2 ( rQMn2, iQMn2 );
+
+		Complex QHF1p (pRe, pIm);
+		Complex QHF1n (nRe, nIm);
+		Complex QHF2p (pRe2, pIm2);
+		Complex QHF2n (nRe2, nIm2);
 
 //		cout << " Q1p  = " << Q1p  << endl;
 //		cout << " Q1p2 = " << Q1p2 << endl;
@@ -237,6 +263,9 @@ void process(int s1 = 0)
 		hQ2aa->Fill( cent, (Q2p1 * std::conj(Q2n1) + Q2n1*std::conj(Q2p1) + Q2p2 + Q2n2).real() ); // x
 		hQ2aaw->Fill( cent, 2*wp1*wn1 + wp2 + wn2 ); // x
 
+
+		// 3part
+
 		// <cos(i+j-2k)> ++a
 		hQ3pp->Fill( cent, (Q3p3 + Q3p2*std::conj(Q2n1)).real() ); // x
 		hQ3ppw->Fill( cent, wp3 + wp2*wn1 ); // x
@@ -250,6 +279,42 @@ void process(int s1 = 0)
 		// <cos(i+j-2k)> +-a
 		hQ3pn->Fill( cent, (QMp2 * Q1n + QMn2 * Q1p).real() ); // x
 		hQ3pnw->Fill( cent, wp2 * wn1 + wn2 * wp1); // x
+
+		// 3part HF
+
+		// <cos(i+j-2HFp)> ++HFp
+		hQ3pHFpp->Fill( cent, ( Q3p2 * std::conj(QHF2p) ).real() );
+		hQ3pHFppw->Fill( cent, wp2 * pHFw );
+		// <cos(i+j-2HFp)> --HFp
+		hQ3pHFnn->Fill( cent, ( Q3n2 * std::conj(QHF2p) ).real() );
+		hQ3pHFnnw->Fill( cent, wn2 * pHFw );
+		// <cos(i+j-2HFp)> ++HFp/--HFp
+		hQ3pHFss->Fill( cent, ( (Q3p2 + Q3n2) * std::conj(QHF2p) ).real() );
+		hQ3pHFssw->Fill( cent, ( wp2 + wn2 ) * pHFw );
+
+		// <cos(i+j-2HFp)> +-HFp
+		hQ3pHFpn->Fill( cent, ( Q1p*Q1n*std::conj(QHF2p) ).real() );
+		hQ3pHFpnw->Fill( cent, wp1 * wn1 * pHFw  );
+
+		//////// HFn
+		// <cos(i+j-2HFp)> ++HFn
+		hQ3pHFpp->Fill( cent, ( Q3p2 * std::conj(QHF2n) ).real() );
+		hQ3pHFppw->Fill( cent, wp2 * nHFw );
+		// <cos(i+j-2HFp)> --HFn
+		hQ3pHFnn->Fill( cent, ( Q3n2 * std::conj(QHF2n) ).real() );
+		hQ3pHFnnw->Fill( cent, wn2 * nHFw );
+		// <cos(i+j-2HFp)> ++HFn/--HFn
+		hQ3pHFss->Fill( cent, ( (Q3p2 + Q3n2) * std::conj(QHF2n) ).real() );
+		hQ3pHFssw->Fill( cent, ( wp2 + wn2 ) * nHFw );
+
+		// <cos(i+j-2HFp)> +-HFn
+		hQ3pHFpn->Fill( cent, ( Q1p*Q1n*std::conj(QHF2n) ).real() );
+		hQ3pHFpnw->Fill( cent, wp1 * wn1 * nHFw  );
+
+		// <cos(2HFp)> HFp
+		hQpHF2->Fill( cent, std::abs(QHF2p) );
+		hQnHF2->Fill( cent, std::abs(QHF2n) );
+
 		// S1c qi*qj*cos(i-j)
 		Complex S1c = - Q1p * std::conj(Q1n) - Q1n * std::conj(Q1p) + Q1p2 + Q1n2; // x
 		// S2 cos(2i-2j)
@@ -295,6 +360,28 @@ void process(int s1 = 0)
 	hQ3nnw->Write();
 	hQ3ssw->Write();
 	hQ3pnw->Write();
+
+	hQ3pHFpp ->Write();
+	hQ3pHFnn ->Write();
+	hQ3pHFss ->Write();
+	hQ3pHFpn ->Write();
+	hQ3pHFppw->Write();
+	hQ3pHFnnw->Write();
+	hQ3pHFssw->Write();
+	hQ3pHFpnw->Write();
+
+	hQ3nHFpp ->Write();
+	hQ3nHFnn ->Write();
+	hQ3nHFss ->Write();
+	hQ3nHFpn ->Write();
+	hQ3nHFppw->Write();
+	hQ3nHFnnw->Write();
+	hQ3nHFssw->Write();
+	hQ3nHFpnw->Write();
+
+	hQpHF2->Write();
+	hQnHF2->Write();
+
 	hQ3Sc->Write();
 
 	hCent->Write();
