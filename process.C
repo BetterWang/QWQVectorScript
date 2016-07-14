@@ -134,8 +134,8 @@ void process(int s1 = 0)
 	TH1D *	hQ2pnw= new TH1D("hQ2pnw", "", 200, 0, 200);
 	TH1D *	hQ2aaw= new TH1D("hQ2aaw", "", 200, 0, 200);
 
-	TH1D *	hQpHF2 = new TH1D("hQ2pp", "", 200, 0, 200);
-	TH1D *	hQnHF2 = new TH1D("hQ2pp", "", 200, 0, 200);
+	TH1D *	hQpHF2 = new TH1D("hQpHF2", "", 200, 0, 200);
+	TH1D *	hQnHF2 = new TH1D("hQnHF2", "", 200, 0, 200);
 
 	TH1D *	hQ3pp = new TH1D("hQ3pp", "", 200, 0, 200);
 	TH1D *	hQ3nn = new TH1D("hQ3nn", "", 200, 0, 200);

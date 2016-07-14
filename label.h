@@ -29,7 +29,9 @@ char const * fname[] = {
 	"../QVector/PAHighPt/crab_pPbHM_QVector_v3/160702_092114/0000/",				// 24 pPb HM ALICE pPb+Pbp+rereco
 	"../QVector/PAHighPt/crab_pPbHM_QVector_eff_v3/160707_153554/0000/",				// 25 pPb HM ALICE pPb+Pbp+rereco eff
 	"../QVector/PAHighPt/crab_pPbHM_QVector_eff_v4/160713_120759/0000/",				// 26 pPb HM ALICE pPb+rereco |eta|<0.8 eff
-	"../QVector/PAHighPt/crab_pPbHM_QVector_eff_reverse_v4/160713_120810/0000/",			// 27 pPb HM ALICE Pbp+rereco |eta|<0.8 eff
+	"../QVector/PAHighPt/crab_pPbHM_QVector_eff_reverse_v4/160713_120810/0000/",			// 27 pPb HM ALICE Pbp |eta|<0.8 eff
+	"../QVector/PAHighPt/crab_pPbHM_QVector_eff_v5/160714_101155/0000/",				// 28 pPb HM ALICE pPb+rereco |eta|<2.4 eff
+	"../QVector/PAHighPt/crab_pPbHM_QVector_eff_reverse_v5/160714_101204/0000/",			// 29 pPb HM ALICE Pbp |eta|<2.4 eff
 };
 
 char const * ftxt[] = {
@@ -61,6 +63,8 @@ char const * ftxt[] = {
 	"txt/PA_HM_ALICE_eff",							// 25
 	"txt/PA_HM_ALICE_eff_v4",						// 26
 	"txt/PA_HM_ALICE_eff_reverse_v4",					// 27
+	"txt/PA_HM_ALICE_eff_v5",						// 28
+	"txt/PA_HM_ALICE_eff_reverse_v5",					// 29
 };
 
 TChain * chV = new TChain("trV");
