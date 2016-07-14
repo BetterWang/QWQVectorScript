@@ -52,6 +52,27 @@ void rebin(int s1 = 7)
 	TH1D *	hQ3ssw = (TH1D*) f->Get("hQ3ssw");
 	TH1D *	hQ3pnw = (TH1D*) f->Get("hQ3pnw");
 
+	TH1D *	hQ3pHFpp  = (TH1D*) f->Get("hQ3pHFpp");
+	TH1D *	hQ3pHFnn  = (TH1D*) f->Get("hQ3pHFnn");
+	TH1D *	hQ3pHFss  = (TH1D*) f->Get("hQ3pHFss");
+	TH1D *	hQ3pHFpn  = (TH1D*) f->Get("hQ3pHFpn");
+	TH1D *	hQ3pHFppw = (TH1D*) f->Get("hQ3pHFppw");
+	TH1D *	hQ3pHFnnw = (TH1D*) f->Get("hQ3pHFnnw");
+	TH1D *	hQ3pHFssw = (TH1D*) f->Get("hQ3pHFssw");
+	TH1D *	hQ3pHFpnw = (TH1D*) f->Get("hQ3pHFpnw");
+
+	TH1D *	hQ3nHFpp  = (TH1D*) f->Get("hQ3nHFpp");
+	TH1D *	hQ3nHFnn  = (TH1D*) f->Get("hQ3nHFnn");
+	TH1D *	hQ3nHFss  = (TH1D*) f->Get("hQ3nHFss");
+	TH1D *	hQ3nHFpn  = (TH1D*) f->Get("hQ3nHFpn");
+	TH1D *	hQ3nHFppw = (TH1D*) f->Get("hQ3nHFppw");
+	TH1D *	hQ3nHFnnw = (TH1D*) f->Get("hQ3nHFnnw");
+	TH1D *	hQ3nHFssw = (TH1D*) f->Get("hQ3nHFssw");
+	TH1D *	hQ3nHFpnw = (TH1D*) f->Get("hQ3nHFpnw");
+
+	TH1D *	hQpHF2 = (TH1D*) f->Get("hQpHF2");
+	TH1D *	hQnHF2 = (TH1D*) f->Get("hQnHF2");
+
 	TH1D *	hQ3Sc  = (TH1D*) f->Get("hQ3Sc");
 
 	TH2D *	hDPhi  = (TH2D*) f->Get("hDPhi");
@@ -94,6 +115,27 @@ void rebin(int s1 = 7)
 	TH1D *	hQ3ssw_Cent = (TH1D*) hQ3ssw ->Rebin(NCent, "hQ3ssw_Cent", Cent);
 	TH1D *	hQ3pnw_Cent = (TH1D*) hQ3pnw ->Rebin(NCent, "hQ3pnw_Cent", Cent);
 
+	TH1D *	hQ3pHFpp_Cent  = (TH1D*) hQ3pHFpp  ->Rebin(NCent, "hQ3pHFpp_Cent", Cent);
+	TH1D *	hQ3pHFnn_Cent  = (TH1D*) hQ3pHFnn  ->Rebin(NCent, "hQ3pHFnn_Cent", Cent);
+	TH1D *	hQ3pHFss_Cent  = (TH1D*) hQ3pHFss  ->Rebin(NCent, "hQ3pHFss_Cent", Cent);
+	TH1D *	hQ3pHFpn_Cent  = (TH1D*) hQ3pHFpn  ->Rebin(NCent, "hQ3pHFpn_Cent", Cent);
+	TH1D *	hQ3pHFppw_Cent = (TH1D*) hQ3pHFppw ->Rebin(NCent, "hQ3pHFppw_Cent", Cent);
+	TH1D *	hQ3pHFnnw_Cent = (TH1D*) hQ3pHFnnw ->Rebin(NCent, "hQ3pHFnnw_Cent", Cent);
+	TH1D *	hQ3pHFssw_Cent = (TH1D*) hQ3pHFssw ->Rebin(NCent, "hQ3pHFssw_Cent", Cent);
+	TH1D *	hQ3pHFpnw_Cent = (TH1D*) hQ3pHFpnw ->Rebin(NCent, "hQ3pHFpnw_Cent", Cent);
+
+	TH1D *	hQ3nHFpp_Cent  = (TH1D*) hQ3nHFpp  ->Rebin(NCent, "hQ3nHFpp_Cent", Cent);
+	TH1D *	hQ3nHFnn_Cent  = (TH1D*) hQ3nHFnn  ->Rebin(NCent, "hQ3nHFnn_Cent", Cent);
+	TH1D *	hQ3nHFss_Cent  = (TH1D*) hQ3nHFss  ->Rebin(NCent, "hQ3nHFss_Cent", Cent);
+	TH1D *	hQ3nHFpn_Cent  = (TH1D*) hQ3nHFpn  ->Rebin(NCent, "hQ3nHFpn_Cent", Cent);
+	TH1D *	hQ3nHFppw_Cent = (TH1D*) hQ3nHFppw ->Rebin(NCent, "hQ3nHFppw_Cent", Cent);
+	TH1D *	hQ3nHFnnw_Cent = (TH1D*) hQ3nHFnnw ->Rebin(NCent, "hQ3nHFnnw_Cent", Cent);
+	TH1D *	hQ3nHFssw_Cent = (TH1D*) hQ3nHFssw ->Rebin(NCent, "hQ3nHFssw_Cent", Cent);
+	TH1D *	hQ3nHFpnw_Cent = (TH1D*) hQ3nHFpnw ->Rebin(NCent, "hQ3nHFpnw_Cent", Cent);
+
+	TH1D *	hQpHF2_Cent  = (TH1D*) hQpHF2  ->Rebin(NCent, "hQpHF2_Cent", Cent);
+	TH1D *	hQnHF2_Cent  = (TH1D*) hQnHF2  ->Rebin(NCent, "hQnHF2_Cent", Cent);
+
 	TH1D *	hQ3Sc_Cent  = (TH1D*) hQ3Sc  ->Rebin(NCent, "hQ3Sc_Cent", Cent);
 
 	TH1D *	hCent_Cent  = (TH1D*) hCent  ->Rebin(NCent, "hCent_Cent", Cent);
@@ -130,6 +172,22 @@ void rebin(int s1 = 7)
 
 	h3PartSS->Divide(hv2aa);
 	h3PartOS->Divide(hv2aa);
+
+	TH1D * h3PartSSpHF = (TH1D*) hQ3pHFss_Cent->Clone("h3PartSSpHF_Cent");
+	TH1D * h3PartOSpHF = (TH1D*) hQ3pHFpn_Cent->Clone("h3PartOSpHF_Cent");
+	h3PartSSpHF->Divide(hQ3pHFssw_Cent);
+	h3PartOSpHF->Divide(hQ3pHFpnw_Cent);
+
+	TH1D * h3PartSSnHF = (TH1D*) hQ3nHFss_Cent->Clone("h3PartSSnHF_Cent");
+	TH1D * h3PartOSnHF = (TH1D*) hQ3nHFpn_Cent->Clone("h3PartOSnHF_Cent");
+	h3PartSSnHF->Divide(hQ3nHFssw_Cent);
+	h3PartOSnHF->Divide(hQ3nHFpnw_Cent);
+
+	TH1D * h3PartSSpHF_raw = (TH1D*) h3PartSSpHF->Clone("h3PartSSpHF_raw");
+	TH1D * h3PartOSpHF_raw = (TH1D*) h3PartOSpHF->Clone("h3PartOSpHF_raw");
+
+	TH1D * h3PartSSnHF_raw = (TH1D*) h3PartSSnHF->Clone("h3PartSSnHF_raw");
+	TH1D * h3PartOSnHF_raw = (TH1D*) h3PartOSnHF->Clone("h3PartOSnHF_raw");
 
 	// Q3Sc
 	hQ3Sc_Cent->Divide(hCent_Cent);
@@ -175,6 +233,27 @@ void rebin(int s1 = 7)
 	hQ3ssw_Cent->Write();
 	hQ3pnw_Cent->Write();
 
+	hQ3pHFpp_Cent ->Write();
+	hQ3pHFnn_Cent ->Write();
+	hQ3pHFss_Cent ->Write();
+	hQ3pHFpn_Cent ->Write();
+	hQ3pHFppw_Cent->Write();
+	hQ3pHFnnw_Cent->Write();
+	hQ3pHFssw_Cent->Write();
+	hQ3pHFpnw_Cent->Write();
+
+	hQ3nHFpp_Cent ->Write();
+	hQ3nHFnn_Cent ->Write();
+	hQ3nHFss_Cent ->Write();
+	hQ3nHFpn_Cent ->Write();
+	hQ3nHFppw_Cent->Write();
+	hQ3nHFnnw_Cent->Write();
+	hQ3nHFssw_Cent->Write();
+	hQ3nHFpnw_Cent->Write();
+
+	hQpHF2_Cent->Write();
+	hQnHF2_Cent->Write();
+
 	hQ3Sc_Cent ->Write();
 
 	hCent_Cent ->Write();
@@ -191,6 +270,11 @@ void rebin(int s1 = 7)
 	h3PartOS_raw->Write();
 	h3PartSS   ->Write();
 	h3PartOS   ->Write();
+
+	h3PartSSpHF_raw->Write();
+	h3PartOSpHF_raw->Write();
+	h3PartSSnHF_raw->Write();
+	h3PartOSnHF_raw->Write();
 
 	for ( int c = 0; c < NCent; c++ ) {
 		h2Q2_Cent[c]->Write();

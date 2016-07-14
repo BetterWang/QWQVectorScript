@@ -28,8 +28,8 @@ char const * fname[] = {
 	"../QVector/HIMinimumBias5/crab_HIMB5_QVector_ALICE_v7/160630_094402/0000/",			// 23 HIMB5 pp rereco 30-100% ALICE 0.3 < pT < 5.0, |eta|<0.8, pixelLayer > 0 more update on tracking
 	"../QVector/PAHighPt/crab_pPbHM_QVector_v3/160702_092114/0000/",				// 24 pPb HM ALICE pPb+Pbp+rereco
 	"../QVector/PAHighPt/crab_pPbHM_QVector_eff_v3/160707_153554/0000/",				// 25 pPb HM ALICE pPb+Pbp+rereco eff
-	"../QVector/PAHighPt/crab_pPbHM_QVector_eff_v4/160713_120759/0000/",				// 26 pPb HM ALICE pPb+rereco eff
-	"../QVector/PAHighPt/crab_pPbHM_QVector_eff_reverse_v4/160713_120810/0000/",			// 27 pPb HM ALICE pPb+rereco eff
+	"../QVector/PAHighPt/crab_pPbHM_QVector_eff_v4/160713_120759/0000/",				// 26 pPb HM ALICE pPb+rereco |eta|<0.8 eff
+	"../QVector/PAHighPt/crab_pPbHM_QVector_eff_reverse_v4/160713_120810/0000/",			// 27 pPb HM ALICE Pbp+rereco |eta|<0.8 eff
 };
 
 char const * ftxt[] = {
