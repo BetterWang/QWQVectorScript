@@ -298,18 +298,18 @@ void process(int s1 = 0)
 
 		//////// HFn
 		// <cos(i+j-2HFp)> ++HFn
-		hQ3pHFpp->Fill( cent, ( Q3p2 * std::conj(QHF2n) ).real() );
-		hQ3pHFppw->Fill( cent, wp2 * nHFw );
+		hQ3nHFpp->Fill( cent, ( Q3p2 * std::conj(QHF2n) ).real() );
+		hQ3nHFppw->Fill( cent, wp2 * nHFw );
 		// <cos(i+j-2HFp)> --HFn
-		hQ3pHFnn->Fill( cent, ( Q3n2 * std::conj(QHF2n) ).real() );
-		hQ3pHFnnw->Fill( cent, wn2 * nHFw );
+		hQ3nHFnn->Fill( cent, ( Q3n2 * std::conj(QHF2n) ).real() );
+		hQ3nHFnnw->Fill( cent, wn2 * nHFw );
 		// <cos(i+j-2HFp)> ++HFn/--HFn
-		hQ3pHFss->Fill( cent, ( (Q3p2 + Q3n2) * std::conj(QHF2n) ).real() );
-		hQ3pHFssw->Fill( cent, ( wp2 + wn2 ) * nHFw );
+		hQ3nHFss->Fill( cent, ( (Q3p2 + Q3n2) * std::conj(QHF2n) ).real() );
+		hQ3nHFssw->Fill( cent, ( wp2 + wn2 ) * nHFw );
 
 		// <cos(i+j-2HFp)> +-HFn
-		hQ3pHFpn->Fill( cent, ( Q1p*Q1n*std::conj(QHF2n) ).real() );
-		hQ3pHFpnw->Fill( cent, wp1 * wn1 * nHFw  );
+		hQ3nHFpn->Fill( cent, ( Q1p*Q1n*std::conj(QHF2n) ).real() );
+		hQ3nHFpnw->Fill( cent, wp1 * wn1 * nHFw  );
 
 		// <cos(2HFp)> HFp
 		hQpHF2->Fill( cent, std::abs(QHF2p) );
