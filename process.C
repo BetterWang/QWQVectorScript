@@ -312,8 +312,8 @@ void process(int s1 = 0)
 		hQ3nHFpnw->Fill( cent, wp1 * wn1 * nHFw  );
 
 		// <cos(2HFp)> HFp
-		hQpHF2->Fill( cent, std::abs(QHF2p) );
-		hQnHF2->Fill( cent, std::abs(QHF2n) );
+		hQpHF2->Fill( cent, std::norm(QHF2p) );
+		hQnHF2->Fill( cent, std::norm(QHF2n) );
 
 		// S1c qi*qj*cos(i-j)
 		Complex S1c = - Q1p * std::conj(Q1n) - Q1n * std::conj(Q1p) + Q1p2 + Q1n2; // x
